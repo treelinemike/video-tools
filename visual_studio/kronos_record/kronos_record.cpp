@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <conio.h>
+#include <iostream>
 #include "BlueVelvetC.h"
 #include "BlueVelvetCUtils.h"
 #include "BlueVelvetCConversion.h"
@@ -139,6 +140,8 @@ int main()
 
         // Capture from input 1
         Ret = bfcAutoCaptureGetFilledBuffer(hBvcInput1, &BufferInfo1, RETURN_MODE_BLOCKING);
+
+        std::cout << "Video pixel format: " << BufferInfo1.VideoPixelFormat << std::endl;
 
         // Capture from input 2 if in dual input mode
         if (USE_DUAL_INPUT) {
