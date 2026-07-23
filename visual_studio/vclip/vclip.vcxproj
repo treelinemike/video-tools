@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\yaml-cpp-0.7.0\include;$(DEV_DIR)\ffmpeg-5.1.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DEV_DIR)\yaml-cpp-0.7.0\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\yaml-cpp-0.7.0\include;$(DEV_DIR)\ffmpeg-5.1.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DEV_DIR)\yaml-cpp-0.7.0\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,11 +112,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\yaml-cpp-0.7.0\include;$(DEV_DIR)\ffmpeg-5.1.2\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>avcodec.lib;avformat.lib;avfilter.lib;avutil.lib;swscale.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DEV_DIR)\yaml-cpp-0.7.0\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,6 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\yaml-cpp-0.7.0\include;$(DEV_DIR)\ffmpeg-5.1.2\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +137,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>avcodec.lib;avformat.lib;avfilter.lib;avutil.lib;swscale.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DEV_DIR)\yaml-cpp-0.7.0\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

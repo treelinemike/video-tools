@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(DEV_DIR)\opencv\build\include;$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\ffmpeg-5.1.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DEV_DIR)\opencv\build\x64\vc16\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(DEV_DIR)\opencv\build\include;$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\ffmpeg-5.1.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DEV_DIR)\opencv\build\x64\vc16\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,11 +112,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DEV_DIR)\opencv\build\include;$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\ffmpeg-5.1.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>avutil.lib;avformat.lib;avcodec.lib;swscale.lib;avfilter.lib;opencv_world480d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DEV_DIR)\opencv\build\x64\vc16\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -128,6 +130,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(DEV_DIR)\opencv\build\include;$(DEV_DIR)\cxxopts\include;$(DEV_DIR)\ffmpeg-5.1.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,6 +138,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>avutil.lib;avformat.lib;avcodec.lib;swscale.lib;avfilter.lib;opencv_world480.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DEV_DIR)\opencv\build\x64\vc16\lib;$(DEV_DIR)\ffmpeg-5.1.2\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
